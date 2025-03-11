@@ -1,0 +1,51 @@
+{
+	"info": {
+		"_postman_id": "1f91402e-3558-439d-a17d-761646176eeb",
+		"name": "MinGOB ITV",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14285180"
+	},
+	"item": [
+		{
+			"name": "InspeccionTecnicaDNFR",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://srvweb.policiadnfr.gob.bo/api/ConsultaVehiculo/ServicioMinGob?contrasenia=d1u4EeXYnp8Xy5h2xWbTz4o0X8EfUhihOwF7Ejd9wrJYQNXkbzCVG7PU7AWndEMDJujblbUcQnO884pdlEMA==&usuario=MinGobDNFRServicio&token_key_MG=P7ehC5HPARluSshmhjb4rmfULceEqO0ku5QhT5iXs3YAMlEUiEbYd6CwQKKrb2RvoT4hHz1Hw6Pm8pRMbshjw==&placa=111FPD",
+					"protocol": "https",
+					"host": [
+						"srvweb",
+						"policiadnfr",
+						"gob",
+						"bo"
+					],
+					"path": [
+						"api",
+						"ConsultaVehiculo",
+						"ServicioMinGob"
+					],
+					"query": [
+						{
+							"key": "contrasenia",
+							"value": "d1u4EeXYnp8Xy5h2xWbTz4o0X8EfUhihOwF7Ejd9wrJYQNXkbzCVG7PU7AWndEMDJujblbUcQnO884pdlEMA=="
+						},
+						{
+							"key": "usuario",
+							"value": "MinGobDNFRServicio"
+						},
+						{
+							"key": "token_key_MG",
+							"value": "P7ehC5HPARluSshmhjb4rmfULceEqO0ku5QhT5iXs3YAMlEUiEbYd6CwQKKrb2RvoT4hHz1Hw6Pm8pRMbshjw=="
+						},
+						{
+							"key": "placa",
+							"value": "111FPD"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

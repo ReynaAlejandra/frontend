@@ -1,0 +1,50 @@
+{
+	"info": {
+		"_postman_id": "5d0f799b-8874-445e-8eae-68cb4d64d1d8",
+		"name": "Servicio Segip ITV",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14285180"
+	},
+	"item": [
+		{
+			"name": "Consulta SEGIP",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InNpZy1ycy0wIn0.eyJ1c2VyIjoic29hdCIsInNlcnZpY2UiOiJDZXJ0aWZpY2FkbyBkZSBBY2NpZGVudGVzIGRlIFRyw6Fuc2l0byBTT0FUIiwiaWF0IjoxNzE5NDA3NzI5LCJhdWQiOiJTZXJ2aWNpbyBkZSBJZGVudGlmaWNhY2lvbiBkZSBQZXJzb25hcyIsImlzcyI6Ik1pbmlzdGVyaW8gZGUgR29iaWVybm8ifQ.YmXEQ8LpgNQxsURar6wK6bumB0VJA4ZG6JtqDWjbaNoNGj5Qjs7LHBXeedjHb4BxFj6jgIlpp71r2cjFxlqfehnsVUqNLtqyCz6FmGsiImNJl_Gw-Ll_4Z86Dkjn0X3HGpsG69scUztEW4kC8U1LtlsUnJ7jb6O2cIblcmR1NUQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"ced\":\"10159160\",\r\n    \"com\":\"\",\r\n    \"nom\":\"\",\r\n    \"pat\":\"\",\r\n    \"mat\":\"\",\r\n    \"fnac\":\"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://10.0.0.93/segip_service",
+					"protocol": "https",
+					"host": [
+						"10",
+						"0",
+						"0",
+						"93"
+					],
+					"path": [
+						"segip_service"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
