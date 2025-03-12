@@ -66,8 +66,7 @@ const routes = [
   ];
 
 const router = createRouter({
-  base:'/soat/',
-  history: createWebHistory(),
+  history: createWebHistory('/soat/'),
   routes
 });
 
