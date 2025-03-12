@@ -107,7 +107,8 @@ console.log(this.formularios);
       },
       async fetchFormularios() {
         try {
-          const response = await axios.get('http://127.0.0.1:5000/api/accidentes');
+          const apiUrl = process.env.VUE_APP_API_URL
+          const response = await axios.get(`${apiUrl}/accidentes`);
           console.log("response", response);
           // this.formularios = response.data;
           this.formularios = response.data.sort((a, b) => new Date(b.hechos[0].diaHoraFecha) - new Date(a.hechos[0].diaHoraFecha));
@@ -117,7 +118,8 @@ console.log(this.formularios);
       },
       async cargarFormularios() {
         try {
-          const response = await axios.get('http://127.0.0.1:5000/api/accidentes');
+          const apiUrl = process.env.VUE_APP_API_URL
+          const response = await axios.get(`${apiUrl}/accidentes`);
           // this.formularios = response.data;
           this.formularios = response.data.sort((a, b) => new Date(b.hechos[0].diaHoraFecha) - new Date(a.hechos[0].diaHoraFecha));
         } catch (error) {
@@ -127,7 +129,8 @@ console.log(this.formularios);
       async abrirModal(id) {
         this.formularioIdSeleccionado = id;
         try {
-          const response = await axios.get(`http://127.0.0.14:5000/api/accidentes/formulario/${id}`);
+          const apiUrl = process.env.VUE_APP_API_URL
+          const response = await axios.get(`${apiUrl}/accidentes/formulario/${id}`);
           this.formularioActual = response.data;
           this.mostrarModal = true;
         } catch (error) {
@@ -136,7 +139,8 @@ console.log(this.formularios);
       },
       async guardarCambios(formularioActualizado, formularioId) {
         try {
-          const response = await axios.put(`http://127.0.0.1:5000/api/accidentes/${formularioId}`, formularioActualizado);
+          const apiUrl = process.env.VUE_APP_API_URL
+          const response = await axios.put(`${apiUrl}/accidentes/${formularioId}`, formularioActualizado);
           console.log('Formulario actualizado:', response.data);
           
           // Actualizar localmente los formularios si es necesario
@@ -159,7 +163,8 @@ console.log(this.formularios);
       //generar reporte con jsreport
       async generarReporte(formularioId) {
         try {
-          const response = await axios.get(`http://localhost:5000/api/accidentes/reporte/${formularioId}`, {
+          const apiUrl = process.env.VUE_APP_API_URL
+          const response = await axios.get(`${apiUrl}/accidentes/reporte/${formularioId}`, {
             responseType: 'blob'
           });
           // Buscar el formulario correspondiente por ID

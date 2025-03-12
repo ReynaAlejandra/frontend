@@ -10,11 +10,25 @@
 //       }
 //     }
 //   };
+
+// export default {
+//   devServer: {
+//     proxy: {
+//       '/api': {
+//         target: 'https://edapi.mingobierno.gob.bo/soat_api',
+//         changeOrigin: true,
+//       },
+//     },
+//   },
+// };
+
 module.exports = {
+  publicPath:'/soat/',
   devServer: {
     proxy: {
       '/api': {
-        target: 'http://127.0.0.1:5000',
+        // target: 'https://edapi.mingobierno.gob.bo/soat_api',
+        target: 'http://127.0.0.1:8080',
         changeOrigin: true,
       },
     },

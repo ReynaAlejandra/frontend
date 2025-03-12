@@ -59,7 +59,8 @@
     created() {
       const userId = this.$route.params.id;
       const token = localStorage.getItem('token');
-      axios.get(`http://127.0.0.1:5000/api/usuarios/${userId}`, {
+      const apiUrl = process.env.VUE_APP_API_URL
+      axios.get(`${apiUrl}/usuarios/${userId}`, {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -76,7 +77,8 @@
       cargarUsuario() {
         const userId = this.$route.params.id;
         const token = localStorage.getItem('token');
-        axios.get(`http://127.0.0.1:5000/api/usuarios/${userId}`, {
+        const apiUrl = process.env.VUE_APP_API_URL
+        axios.get(`${apiUrl}/usuarios/${userId}`, {
           headers: {
             Authorization: `Bearer ${token}`
           }
@@ -91,7 +93,8 @@
       actualizarUsuario() {
         const userId = this.$route.params.id;
         const token = localStorage.getItem('token');
-        axios.put(`http://127.0.0.1:5000/api/usuarios/${userId}`, this.usuario, {
+        const apiUrl = process.env.VUE_APP_API_URL
+        axios.put(`${apiUrl}/usuarios/${userId}`, this.usuario, {
           headers: {
             Authorization: `Bearer ${token}`
           }
@@ -107,8 +110,9 @@
       eliminarUsuario() {
         const userId = this.$route.params.id;
         const token = localStorage.getItem('token');
+        const apiUrl = process.env.VUE_APP_API_URL
         if (confirm('¿Estás seguro de eliminar este usuario?')) {
-          axios.delete(`http://127.0.0.1:5000/api/usuarios/${userId}`, {
+          axios.delete(`${apiUrl}/usuarios/${userId}`, {
             headers: {
               Authorization: `Bearer ${token}`
             }

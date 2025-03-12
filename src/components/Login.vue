@@ -57,7 +57,8 @@
       },
       async login() {
         try {
-          const response = await axios.post('http://127.0.0.1:5000/api/usuarios/login', {
+          const apiUrl = process.env.VUE_APP_API_URL
+          const response = await axios.post(`/usuarios/login`, {
             usuario: this.usuario,
             password: this.password
           });

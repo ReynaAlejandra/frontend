@@ -415,7 +415,8 @@ export default {
             alert('CI del conductor es requerido')
             return;
           }
-          const response = await axios.post('http://localhost:5000/segip_service', {
+          const apiUrl = process.env.VUE_APP_API_URL
+          const response = await axios.post(`${apiUrl}/segip_service`, {
             ced: ci,
             com: '',
             nom: '',
@@ -490,7 +491,8 @@ export default {
             alert('CI de la víctima es requerido')
             return;
           }
-          const response = await axios.post('http://localhost:5000/segip_service', {
+          const apiUrl = process.env.VUE_APP_API_URL
+          const response = await axios.post(`${apiUrl}/segip_service`, {
             ced: ci,
             com: '',
             nom: '',
@@ -550,7 +552,8 @@ export default {
     //generar reporte con jsreport
     async generarReporte() {
       try {
-        const response = await axios.get(`http://localhost:5000/api/accidentes/reporte/${this.formularioId}`, {
+        const apiUrl = process.env.VUE_APP_API_URL
+        const response = await axios.get(`${apiUrl}/accidentes/reporte/${this.formularioId}`, {
         //   template: {
         //     shortid: 'kq2nv7UyxU' // Reemplaza con el shortid de tu template en jsreport
         //   },

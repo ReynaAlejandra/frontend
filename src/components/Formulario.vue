@@ -321,8 +321,9 @@ export default {
       console.log(this.formulario);
       console.log("Datos enviados: ", formData);
       try {
-        const response = await axios.post('http://127.0.0.1:5000/api/accidentes', this.formulario)
-        // const response = await axios.post('http://127.0.0.1:5000/api/accidentes', formData)
+        const apiUrl = process.env.VUE_APP_API_URL
+        const response = await axios.post(`${apiUrl}`, this.formulario)
+        // const response = await axios.post('https://edapi.mingobierno.gob.bo/soat_api/accidentes', formData)
         console.log("response", response)
         alert('Formulario enviado exitosamente');
         this.$router.push('/hechos')
@@ -388,7 +389,8 @@ export default {
           alert('CI del conductor es requerido')
           return;
         }
-        const response = await axios.post('http://localhost:5000/segip_service', {
+        const apiUrl = process.env.VUE_APP_API_URL
+        const response = await axios.post(`${apiUrl}/segip_service`, {
           ced: ci,
           com: '',
           nom: '',
@@ -475,7 +477,8 @@ export default {
           alert('CI de la víctima es requerido')
           return;
         }
-        const response = await axios.post('http://localhost:5000/segip_service', {
+        const apiUrl = process.env.VUE_APP_API_URL
+        const response = await axios.post(`${apiUrl}/segip_service`, {
           ced: ci,
           com: '',
           nom: '',
