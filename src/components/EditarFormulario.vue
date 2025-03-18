@@ -91,7 +91,7 @@
       async actualizarFormulario() {
         try {
           const apiUrl = process.env.VUE_APP_API_URL
-          const response = await axios.put(`${apiUrl}/api/accidentes/formulario/${this.$route.params.id}`, this.formulario);
+          const response = await axios.put(`${apiUrl}/accidentes/formulario/${this.$route.params.id}`, this.formulario);
           console.log(response.data);
           alert('Formulario actualizado con éxito');
           // Redireccionar a la página de detalles o lista de formularios actualizados
@@ -104,7 +104,7 @@
       async obtenerFormulario() {
         try {
           const apiUrl = process.env.VUE_APP_API_URL
-          const response = await axios.get(`${apiUrl}/api/accidentes/formulario/${this.$route.params.id}`);
+          const response = await axios.get(`${apiUrl}/accidentes/formulario/${this.$route.params.id}`);
           this.formulario = response.data;
           this.updateConductores();
           this.updateVictimas();
@@ -116,7 +116,7 @@
         try {
           const apiUrl = process.env.VUE_APP_API_URL
           const ci = this.formulario.conductores[index];
-          const response = await axios.get(`${apiUrl}/api/conductores/${ci}`);
+          const response = await axios.get(`${apiUrl}/conductores/${ci}`);
           if (response.data) {
             console.log(`Conductor encontrado: ${response.data}`);
           } else {
@@ -130,7 +130,7 @@
         try {
           const apiUrl = process.env.VUE_APP_API_URL
           const ci = this.formulario.victimas[index];
-          const response = await axios.get(`${apiUrl}/api/victimas/${ci}`);
+          const response = await axios.get(`${apiUrl}/victimas/${ci}`);
           if (response.data) {
             console.log(`Víctima encontrada: ${response.data}`);
           } else {

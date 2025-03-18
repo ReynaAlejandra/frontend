@@ -83,7 +83,7 @@
           }
         try {
           const apiUrl = process.env.VUE_APP_API_URL
-          const response = await axios.post(`${apiUrl}/api/usuarios/register`, {
+          const response = await axios.post(`${apiUrl}/usuarios/register`, {
             nombre: this.nombre,
             apellidos: this.apellidos,
             carnet: this.carnet,

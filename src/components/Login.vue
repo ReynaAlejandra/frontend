@@ -58,7 +58,7 @@
       async login() {
         try {
           const apiUrl = process.env.VUE_APP_API_URL
-          const response = await axios.post(`${apiUrl}/api/usuarios/login`, {
+          const response = await axios.post(`${apiUrl}/usuarios/login`, {
             usuario: this.usuario,
             password: this.password
           });

@@ -108,7 +108,7 @@ console.log(this.formularios);
       async fetchFormularios() {
         try {
           const apiUrl = process.env.VUE_APP_API_URL
-          const response = await axios.get(`${apiUrl}/api/accidentes`);
+          const response = await axios.get(`${apiUrl}/accidentes`);
           console.log("response", response);
           // this.formularios = response.data;
           this.formularios = response.data.sort((a, b) => new Date(b.hechos[0].diaHoraFecha) - new Date(a.hechos[0].diaHoraFecha));
@@ -119,7 +119,7 @@ console.log(this.formularios);
       async cargarFormularios() {
         try {
           const apiUrl = process.env.VUE_APP_API_URL
-          const response = await axios.get(`${apiUrl}/api/accidentes`);
+          const response = await axios.get(`${apiUrl}/accidentes`);
           // this.formularios = response.data;
           this.formularios = response.data.sort((a, b) => new Date(b.hechos[0].diaHoraFecha) - new Date(a.hechos[0].diaHoraFecha));
         } catch (error) {
@@ -130,7 +130,7 @@ console.log(this.formularios);
         this.formularioIdSeleccionado = id;
         try {
           const apiUrl = process.env.VUE_APP_API_URL
-          const response = await axios.get(`${apiUrl}/api/accidentes/formulario/${id}`);
+          const response = await axios.get(`${apiUrl}/accidentes/formulario/${id}`);
           this.formularioActual = response.data;
           this.mostrarModal = true;
         } catch (error) {
@@ -140,7 +140,7 @@ console.log(this.formularios);
       async guardarCambios(formularioActualizado, formularioId) {
         try {
           const apiUrl = process.env.VUE_APP_API_URL
-          const response = await axios.put(`${apiUrl}/api/accidentes/${formularioId}`, formularioActualizado);
+          const response = await axios.put(`${apiUrl}/accidentes/${formularioId}`, formularioActualizado);
           console.log('Formulario actualizado:', response.data);
           
           // Actualizar localmente los formularios si es necesario
@@ -164,7 +164,7 @@ console.log(this.formularios);
       async generarReporte(formularioId) {
         try {
           const apiUrl = process.env.VUE_APP_API_URL
-          const response = await axios.get(`${apiUrl}/api/accidentes/reporte/${formularioId}`, {
+          const response = await axios.get(`${apiUrl}/accidentes/reporte/${formularioId}`, {
             responseType: 'blob'
           });
           // Buscar el formulario correspondiente por ID

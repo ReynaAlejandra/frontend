@@ -560,7 +560,7 @@ export default {
     async generarReporte() {
       try {
         const apiUrl = process.env.VUE_APP_API_URL
-        const response = await axios.get(`${apiUrl}/api/accidentes/reporte/${this.formularioId}`, {
+        const response = await axios.get(`${apiUrl}/accidentes/reporte/${this.formularioId}`, {
           responseType: 'blob'
         });
 
