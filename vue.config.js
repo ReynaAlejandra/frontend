@@ -27,8 +27,8 @@ module.exports = {
   devServer: {
     proxy: {
       '/api': {
-        // target: 'https://edapi.mingobierno.gob.bo/soat_api',
-        target: 'http://127.0.0.1:8080',
+        target: 'https://edapi.mingobierno.gob.bo/soat_api',
+        // target: 'http://127.0.0.1:8080',
         changeOrigin: true,
       },
     },
