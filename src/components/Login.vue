@@ -58,7 +58,7 @@
       async login() {
         try {
           const apiUrl = process.env.VUE_APP_API_URL
-          const response = await axios.post(`/usuarios/login`, {
+          const response = await axios.post(`${apiUrl}/api/usuarios/login`, {
             usuario: this.usuario,
             password: this.password
           });
@@ -70,8 +70,8 @@
             localStorage.setItem('userData', JSON.stringify(response.data.userData))
 
           // Verificar si el rol se guarda correctamente
-          const userData = JSON.parse(localStorage.getItem('userData'));
-          console.log('Rol del usuario:', userData.rol);
+          // const userData = JSON.parse(localStorage.getItem('userData'));
+          // console.log('Rol del usuario:', userData.rol);
             
             this.toast.success('Inicio de sesión correcto');
             this.$emit('loginSuccess');

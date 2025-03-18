@@ -57,7 +57,7 @@
     created() {
       const token = localStorage.getItem('token')
       const apiUrl = process.env.VUE_APP_API_URL
-      axios.get(`${apiUrl}/usuarios`, {
+      axios.get(`${apiUrl}/api/usuarios`, {
         headers: {
           Authorization: `Bearer ${token}`
         }

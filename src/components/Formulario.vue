@@ -215,11 +215,11 @@
         </div>
 
         <!-- comentarios adicionales -->
-        <p><strong>6. Observaciones</strong></p>
+        <!-- <p><strong>6. Observaciones</strong></p>
         <div>
           <label for="comentarios">Comentarios Adicionales (Opcional):</label>
           <input type="text" id="comentarios" v-model="formulario.comentarios" maxlength="1000" class="input" />          
-        </div>
+        </div> -->
 
         <button type="submit">Enviar</button>
       </form>
@@ -322,7 +322,9 @@ export default {
       console.log("Datos enviados: ", formData);
       try {
         const apiUrl = process.env.VUE_APP_API_URL
-        const response = await axios.post(`${apiUrl}`, this.formulario)
+        const response = await axios.post(`${apiUrl}/accidentes`, this.formulario)
+        // const response = await axios.post('http://localhost:5000/accidentes', formData)
+        // const response = await axios.post(`${apiUrl}`, this.formulario)
         // const response = await axios.post('https://edapi.mingobierno.gob.bo/soat_api/accidentes', formData)
         console.log("response", response)
         alert('Formulario enviado exitosamente');
@@ -391,6 +393,7 @@ export default {
         }
         const apiUrl = process.env.VUE_APP_API_URL
         const response = await axios.post(`${apiUrl}/segip_service`, {
+        // const response = await axios.post('http://localhost:5000/segip_service', {
           ced: ci,
           com: '',
           nom: '',
@@ -479,6 +482,7 @@ export default {
         }
         const apiUrl = process.env.VUE_APP_API_URL
         const response = await axios.post(`${apiUrl}/segip_service`, {
+        // const response = await axios.post('http://localhost:5000/segip_service', {
           ced: ci,
           com: '',
           nom: '',

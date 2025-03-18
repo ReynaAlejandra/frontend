@@ -21,7 +21,18 @@
       </div>
       <div class="form-group">
         <label for="departamento">Departamento:</label>
-        <input type="text" id="departamento" v-model="formulario.hechos[0].departamento" :readonly="!editable" />
+        <!-- <input type="text" id="departamento" v-model="formulario.hechos[0].departamento" :readonly="!editable" /> -->
+        <select id="departamento" v-model="formulario.hechos[0].departamento" autocomplete="off" :readonly="!editable" >
+                <option value="La Paz">La Paz</option>
+                <option value="Cochabamba">Cochabamba</option>
+                <option value="Santa Cruz">Santa Cruz</option>
+                <option value="Oruro">Oruro</option>
+                <option value="Potosi">Potosí</option>
+                <option value="Tarija">Tarija</option>
+                <option value="Beni">Beni</option>
+                <option value="Pando">Pando</option>
+                <option value="Chuquisaca">Chuquisaca</option>
+              </select>
       </div>
       <div class="form-group">
         <label for="estacionPolicial">Estación Policial:</label>
@@ -35,7 +46,6 @@
         <label for="diaHoraFecha">Día, Hora y Fecha del Hecho:</label>
         <input type="datetime-local" id="diaHoraFecha" v-model="formulario.hechos[0].diaHoraFecha"  :readonly="!editable" />
       </div>
-
 
       <!-- vehiculos -->
       <div class="subt">
@@ -68,9 +78,6 @@
             <label :for="'color' + index">Color:</label>
             <input type="text" :id="'color' + index" v-model="vehiculo.color" :readonly="!editable" />
           </div>
-
-
-
           <div class="form-group">
             <label :for="'empresa' + index">Empresa o Institución a la que pertenece el vehículo:</label>
             <input type="text" :id="'empresa' + index" v-model="vehiculo.empresa" :readonly="!editable" />
@@ -79,9 +86,6 @@
             <label :for="'tipoUso' + index">Tipo de servicio:</label>
             <input type="text" :id="'tipoUso' + index" v-model="vehiculo.tipoUso" :readonly="!editable" />
           </div>
-
-
-
       </div>
 
       <!-- conductores -->
@@ -117,22 +121,24 @@
           </div>
           <div class="form-group">
             <label :for="'categoria' + index">Categoría:</label>
-            <input type="text" :id="'categoria' + index" v-model="conductor.categoria" :readonly="!editable" />
+            <!-- <input type="text" :id="'categoria' + index" v-model="conductor.categoria" :readonly="!editable" /> -->
+            <select :id="'categoria' + index" v-model="conductor.categoria" :readonly="!editable" class="input">
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="P">P</option>
+                <option value="M">M</option>
+              </select>
           </div>
-          
-          
-          
           <div class="form-group">
             <label :for="'licDesde' + index">Vigencia desde:</label>
-            <input type="datetime-local" :id="'licDesde' + index" v-model="conductor.licDesde" :readonly="!editable" />
+            <input type="datetime-local" id="licDesde" v-model="formattedLicDesde" :readonly="!editable" />
           </div>
           <div class="form-group">
-            <label :for="'licHasta' + index">Vigencia hasta::</label>
+            <label :for="'licHasta' + index">Vigencia hasta:</label>
             <input type="datetime-local" :id="'licHasta' + index" v-model="formattedLicHasta" :readonly="!editable" />
           </div>
-          
-          
-          
+
           <div class="form-group">
             <label :for="'alcoholemia' + index">Resultado Test de Alcoholemia:</label>
             <input type="text" :id="'alcoholemia' + index" v-model="conductor.alcoholemia" :readonly="!editable" />
@@ -190,22 +196,22 @@
         <div class="form-group">
           <label :for="'fallecidoHerido' + index">Fallecido o Herido:</label>
           <select :id="'fallecidoHerido' + index" v-model="victima.fallecidoHerido" :readonly="!editable">
-            <option value="fallecido">Fallecido</option>
-            <option value="herido">Herido</option>
+            <option value="FALLECIDO">Fallecido</option>
+            <option value="HERIDO">Herido</option>
           </select>
         </div>
         <div class="form-group">
           <label :for="'tipoVictima' + index">Tipo de Víctima:</label>
           <select :id="'tipoVictima' + index" v-model="victima.tipoVictima" :readonly="!editable">
-            <option value="peaton">Peatón</option>
-            <option value="pasajero">Pasajero</option>
-            <option value="conductor">Conductor</option>
+            <option value="PEATÓN">Peatón</option>
+            <option value="PASAJERO">Pasajero</option>
+            <option value="CONDUCTOR">Conductor</option>
           </select>
         </div>
         <div class="form-group">
           <label :for="'vehiculoCorrespondeVictima' + index">Vehículo al que Correspondía:</label>
           <select :id="'vehiculoCorrespondeVictima' + index" v-model="victima.vehiculoCorrespondeVictima" :readonly="!editable" >
-            <option value="sinVehiculo">Sin Vehículo</option>
+            <option value="SIN VEHÍCULO">Sin Vehículo</option>
             <option v-for="(vehiculo, placaIndex) in formulario.vehiculos" :key="placaIndex" :value="vehiculo.placa">
               {{ vehiculo.placa }}
             </option>
@@ -233,15 +239,6 @@
       <div class="form-group">
         <label for="usuario">Usuario:</label>
         <input type="text" id="usuario" :value="formulario.usuario" :readonly="!editable">
-      </div>
-
-      <!-- comentarios adicionales -->
-      <div class="subt">
-        <h3><strong>8. Comentarios</strong></h3>
-      </div>
-      <div class="form-group">
-        <label for="comentarios">Comentarios Adicionales (Opcional):</label>
-        <textarea id="comentarios" v-model="formulario.comentarios" maxlength="1000" :readonly="!editable" class="textarea2"></textarea>
       </div>
 
       <!-- Botones de accion -->
@@ -296,15 +293,25 @@ export default {
     formattedLicDesde() {
       if (!this.formulario.licDesde) return '';
       const date = new Date(this.formulario.licDesde);
-      return date.toISOString().slice(0, 16); // Formato YYYY-MM-DDTHH:MM
+      return date.toISOString().slice(0, 16); 
+      // return this.formatDateTime(this.formulario.conductores[0].licDesde)
     },
     formattedLicHasta() {
       if (!this.formulario.licHasta) return '';
       const date = new Date(this.formulario.licHasta);
-      return date.toISOString().slice(0, 16); // Formato YYYY-MM-DDTHH:MM
+      return date.toISOString().slice(0, 16);
+      // return this.formatDateTime(this.formulario.conductores[0].licHasta)
     }
   },
   methods: {
+    // formatDateTime(date) {
+    //   if (!date) return ''; // Si la fecha está vacía, retorna una cadena vacía
+    //   const fecha = new Date(date);
+    //   const dia = String(fecha.getDate()).padStart(2, '0');
+    //   const mes = String(fecha.getMonth() + 1).padStart(2, '0'); // Los meses van de 0 a 11
+    //   const anio = fecha.getFullYear();
+    //   return `${dia}/${mes}/${anio}`;
+    // },
     agregarVehiculo() {
       // Añadir un nuevo vehículo al array 'vehiculos'
       this.formulario.vehiculos.push({
@@ -553,12 +560,7 @@ export default {
     async generarReporte() {
       try {
         const apiUrl = process.env.VUE_APP_API_URL
-        const response = await axios.get(`${apiUrl}/accidentes/reporte/${this.formularioId}`, {
-        //   template: {
-        //     shortid: 'kq2nv7UyxU' // Reemplaza con el shortid de tu template en jsreport
-        //   },
-        //   data: this.formulario,
-        // }, {
+        const response = await axios.get(`${apiUrl}/api/accidentes/reporte/${this.formularioId}`, {
           responseType: 'blob'
         });
 
@@ -585,6 +587,7 @@ export default {
   text-transform: uppercase;
 }
 .modal-overlay {
+
   position:fixed;
   top: 0;
   left: 0;
@@ -592,7 +595,7 @@ export default {
   bottom: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.5);
+  /*background-color: rgba(255, 255, 255, 0.5);*/
   display: flex;
   justify-content: center;
   align-items: center;
@@ -602,17 +605,21 @@ export default {
 }
 
 .modal-content {
-  background-color: rgb(107, 141, 104);
+  background-color: rgb(255, 255, 255);
+  /*background: url('../assets/SOAT-2025-NUEVO4.jpg') no-repeat center center;*/
+  background-repeat: repeat;
+  background-size: auto;
   padding: 1em 5em 1em 1em;
   width: 80%;
   max-width: 150vh;
   max-height: 90vh;
   overflow-y: auto; 
   border-radius: 1em;
-  box-shadow: 0 0 0.8em rgba(255, 255, 255, 0.473);
+  box-shadow: 0 0px 10px rgba(28, 104, 5, 0.548);
   position: relative;
   font-size: 18px;
   text-transform: uppercase;
+  border: 5px solid #686868;
 }
 
 .modal-content h1 {
